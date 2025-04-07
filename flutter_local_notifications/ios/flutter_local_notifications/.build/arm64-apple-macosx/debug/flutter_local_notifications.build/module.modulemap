@@ -1,0 +1,4 @@
+module flutter_local_notifications {
+    umbrella "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/ios/flutter_local_notifications/Sources/flutter_local_notifications/include"
+    export *
+}

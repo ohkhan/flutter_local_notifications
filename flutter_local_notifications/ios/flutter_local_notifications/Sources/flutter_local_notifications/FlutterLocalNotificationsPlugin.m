@@ -570,7 +570,6 @@ static FlutterError *getFlutterError(NSError *error) {
   UNUserNotificationCenter *center =
       [UNUserNotificationCenter currentNotificationCenter];
   [center removeAllPendingNotificationRequests];
-  [center removeAllDeliveredNotifications];
   result(nil);
 }
 

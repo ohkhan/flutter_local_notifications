@@ -371,14 +371,14 @@ public class FlutterLocalNotificationsPlugin: NSObject, FlutterPlugin, UNUserNot
         if #available(macOS 10.14, *) {
             let center = UNUserNotificationCenter.current()
             center.removeAllPendingNotificationRequests()
-            center.removeAllDeliveredNotifications()
+            // center.removeAllDeliveredNotifications()
             result(nil)
         } else {
             let center = NSUserNotificationCenter.default
             for scheduledNotification in center.scheduledNotifications {
                 center.removeScheduledNotification(scheduledNotification)
             }
-            center.removeAllDeliveredNotifications()
+            // center.removeAllDeliveredNotifications()
             result(nil)
         }
     }

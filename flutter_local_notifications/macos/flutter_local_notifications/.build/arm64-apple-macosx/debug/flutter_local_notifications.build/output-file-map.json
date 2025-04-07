@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/master.swiftdeps"
+  },
+  "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/Sources/flutter_local_notifications/FlutterLocalNotificationsConverters.swift": {
+    "dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsConverters.d",
+    "object": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsConverters.swift.o",
+    "swiftmodule": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsConverters~partial.swiftmodule",
+    "swift-dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsConverters.swiftdeps"
+  },
+  "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/Sources/flutter_local_notifications/FlutterLocalNotificationsPlugin.swift": {
+    "dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsPlugin.d",
+    "object": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsPlugin.swift.o",
+    "swiftmodule": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsPlugin~partial.swiftmodule",
+    "swift-dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/FlutterLocalNotificationsPlugin.swiftdeps"
+  },
+  "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/DerivedSources/resource_bundle_accessor.swift": {
+    "dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/resource_bundle_accessor.d",
+    "object": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/resource_bundle_accessor.swift.o",
+    "swiftmodule": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/resource_bundle_accessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/resource_bundle_accessor.swiftdeps"
+  }
+}

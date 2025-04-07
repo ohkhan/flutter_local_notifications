@@ -1,0 +1,4 @@
+module flutter_local_notifications {
+    header "/Users/omarkhan/flutter_local_notifications/flutter_local_notifications/macos/flutter_local_notifications/.build/arm64-apple-macosx/debug/flutter_local_notifications.build/flutter_local_notifications-Swift.h"
+    requires objc
+}
