@@ -231,6 +231,8 @@ public class FlutterLocalNotificationsPlugin
       } catch (ExactAlarmPermissionException e) {
         Log.e(TAG, e.getMessage());
         removeNotificationFromCache(context, notificationDetails.id);
+      } catch (IllegalStateException error) {
+        Log.e(TAG, "Unable to restore notification " + notificationDetails.id, error);
       }
     }
   }
@@ -250,6 +252,8 @@ public class FlutterLocalNotificationsPlugin
     } catch (ExactAlarmPermissionException e) {
       Log.e(TAG, e.getMessage());
       removeNotificationFromCache(context, notificationDetails.id);
+    } catch (IllegalStateException error) {
+      Log.e(TAG, "Unable to schedule next notification " + notificationDetails.id, error);
     }
   }
 
@@ -462,20 +466,48 @@ public class FlutterLocalNotificationsPlugin
       Context context,
       NotificationDetails notificationDetails,
       NotificationCompat.Builder builder) {
-    if (!StringUtils.isNullOrEmpty(notificationDetails.icon)) {
-      builder.setSmallIcon(getDrawableResourceId(context, notificationDetails.icon));
-    } else {
-      SharedPreferences sharedPreferences =
-          context.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
-      String defaultIcon = sharedPreferences.getString(DEFAULT_ICON, null);
-      if (StringUtils.isNullOrEmpty(defaultIcon)) {
-        // for backwards compatibility: this is for handling the old way references to the icon used
-        // to be kept but should be removed in future
-        builder.setSmallIcon(notificationDetails.iconResourceId);
+    builder.setSmallIcon(resolveSmallIcon(context, notificationDetails));
+  }
 
-      } else {
-        builder.setSmallIcon(getDrawableResourceId(context, defaultIcon));
+  static int resolveSmallIcon(Context context, NotificationDetails details) {
+    int icon = StringUtils.isNullOrEmpty(details.icon)
+        ? 0 : getDrawableResourceId(context, details.icon);
+    if (isDrawableResource(context, icon)) {
+      return icon;
+    }
+    String defaultIcon = context.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE)
+        .getString(DEFAULT_ICON, null);
+    icon = StringUtils.isNullOrEmpty(defaultIcon) ? 0 : getDrawableResourceId(context, defaultIcon);
+    if (isDrawableResource(context, icon)) {
+      return icon;
+    }
+    if (details.iconResourceId != null && isDrawableResource(context, details.iconResourceId)) {
+      return details.iconResourceId;
+    }
+    try {
+      android.content.pm.ApplicationInfo application = context.getPackageManager()
+          .getApplicationInfo(context.getPackageName(), android.content.pm.PackageManager.GET_META_DATA);
+      if (application.metaData != null) {
+        icon = application.metaData.getInt("com.dexterous.flutterlocalnotifications.default_notification_icon", 0);
+        if (isDrawableResource(context, icon)) {
+          return icon;
+        }
       }
+    } catch (android.content.pm.PackageManager.NameNotFoundException error) {
+      Log.e(TAG, "Unable to load notification icon metadata", error);
+    }
+    return android.R.drawable.ic_popup_reminder;
+  }
+
+  private static boolean isDrawableResource(Context context, int icon) {
+    if (icon == 0) {
+      return false;
+    }
+    try {
+      String type = context.getResources().getResourceTypeName(icon);
+      return "drawable".equals(type) || "mipmap".equals(type);
+    } catch (android.content.res.Resources.NotFoundException error) {
+      return false;
     }
   }
 
